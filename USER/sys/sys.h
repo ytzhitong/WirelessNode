@@ -31,6 +31,9 @@
 //1,支持os
 #define SYSTEM_SUPPORT_OS		1		//定义系统文件夹是否支持OS
 
+#define Bit_SET 1
+#define Bit_RESET 0
+
 //定义一些常用的数据类型短关键字
 typedef int32_t  s32;
 typedef int16_t s16;

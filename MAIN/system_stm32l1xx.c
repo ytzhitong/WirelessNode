@@ -78,12 +78,12 @@
   * @{
   */
 #if !defined  (HSE_VALUE) 
-  #define HSE_VALUE    ((uint32_t)8000000U) /*!< Default value of the External oscillator in Hz.
+  #define HSE_VALUE    ((uint32_t)16000000U) /*!< Default value of the External oscillator in Hz.
                                                 This value can be provided and adapted by the user application. */
 #endif /* HSE_VALUE */
 
 #if !defined  (HSI_VALUE)
-  #define HSI_VALUE    ((uint32_t)8000000U) /*!< Default value of the Internal oscillator in Hz.
+  #define HSI_VALUE    ((uint32_t)16000000U) /*!< Default value of the Internal oscillator in Hz.
                                                 This value can be provided and adapted by the user application. */
 #endif /* HSI_VALUE */
 
@@ -176,7 +176,10 @@ void SystemInit (void)
 #ifdef DATA_IN_ExtSRAM
   SystemInit_ExtMemCtl(); 
 #endif /* DATA_IN_ExtSRAM */
-    
+
+ /* Configure the System clock frequency, AHB/APBx prescalers and Flash settings */
+//  SetSysClock(); //***此函数的作用初始化外部高速晶振，如果注释此函数，此系统会默认使用STM32内部8M的高速晶振***
+
 #ifdef VECT_TAB_SRAM
   SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM. */
 #else
